@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期試打價能力㗂越</title>
+      <link rel="stylesheet" href="../style.css" />
+    <style>/* 容器：確保左右兩欄並排 */
+.main-content-wrapper {
+    display: flex;
+    max-width: 960px;
+    margin: 20px auto;
+    gap: 30px;
+}
+
+/* --- 側邊欄樣式 --- */
+/* 側邊欄容器 */
+.inner-sidebar {
+    flex: 0 0 260px; /* 固定 300px，不放大也不縮小 */
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+/* --- 選單區 (斜紋背景 + 紅圖示) --- */
+.side-menu {
+  font-family: 'HanNomGothic', serif;
+    list-style: none;
+    padding: 0;
+    font-weight: 400;
+    margin: 0;
+}
+
+.side-menu li {
+    border-top: 1px solid #ddd;
+}
+
+.side-menu a {
+    display: block;
+    padding: 15px 15px 15px 40px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    /* 極淺斜紋背景 */
+    background: repeating-linear-gradient(
+        45deg,
+        #fcfcfc,
+        #fcfcfc 4px,
+        #ffffff 4px,
+        #ffffff 8px
+    );
+}
+.header-title{
+    color: #002403;
+}
+
+rt {
+            font-size: 0.55em;
+            color: #666;
+            line-height: 1.0;
+        }
+.article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+.article-content {
+            border-radius: 8px;
+        }
+        .page-article {
+
+            font-family: 'HanNomGothic', serif;
+        }
+.side-menu a::before {
+    content: '▶';
+    position: absolute;
+    left: 15px;
+    color: #e6002d;
+    font-size: 12px;
+}
+
+.side-menu a:hover {
+    background: #f0f0f0;
+}
+.side-menu a.active-item {
+    background: #f0f0f0 !important; /* 強制常駐背景色 */
+    font-weight: bold;              /* 增加粗體區隔 */
+}
+/* --- 考試日期區 (底部區塊) --- */
+.exam-date-box {
+  margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.exam-header {
+    background: #0051e6;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-top: 14px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    /* 這裡也可以加斜紋 */
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 4px);
+}
+.container1 {
+            background-color: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 30px 50px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        .header-title1 {
+            font-size: 1.4rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .header-title1::before {
+            content: "■";
+            color: #d32f2f;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        .description1 {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .section-title1 {
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-top: 45px;
+            margin-bottom: 15px;
+        }
+
+        /* 表格通用樣式 */
+        .score-table1 {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+        }
+
+        .score-table1 th, .score-table1 td {
+            border: 1px solid #bbb;
+            padding: 12px 8px;
+        }
+
+        .bg-pink1 {
+            background-color: #eef3fd;
+            font-weight: bold;
+        }
+
+        .score-display1 {
+            font-size: 1.2rem;
+            height: 45px;
+        }
+
+        /* 參考資訊區塊 */
+        .ref-wrapper1 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .ref-label1 {
+            text-align: right;
+            font-size: 0.75rem;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .ref-box1 {
+            border: 1px solid #bbb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ref-header1 {
+            background-color: #eef3fd;
+            padding: 10px 5px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            
+            border-bottom: 1px solid #bbb;
+            min-height: 40  px;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .ref-content-row1 {
+            display: flex;
+            height: 100%;
+            text-align: center;
+            align-items: center;
+        }
+
+        .ref-sub-col1 {
+            flex: 1;
+            border-right: 1px solid #bbb;
+            padding: 15px 5px;
+            font-size: 0.85rem;
+        }
+
+        .ref-sub-col1:last-child {
+            border-right: none;
+        }
+
+        .highlight-red1 {
+            border: 2px solid #ff0000 !important;
+            flex: 1;
+        }
+
+        .red-text1 {
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+.exam-body {
+    padding: 15px;
+    font-size: 14px;
+}
+
+.exam-body p { margin: 8px 0; }
+.exam-body strong { color: #007fe6; font-size: 16px; }
+
+.exam-footer {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+/* 頂部 01 區塊 */
+.page-title-badge {
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 15px;
+    position: relative;
+    border-radius: 8px 8px 0 0; /* 上方圓角 */
+}
+.section-header {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+            border: 1px solid #dcdcdc;
+            padding: 8px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+.red-dots {
+            display: grid;
+            grid-template-columns: repeat(2, 6px);
+            grid-gap: 3px;
+            margin-right: 12px;
+        }
+.dot {
+            width: 6px;
+            height: 6px;
+            background-color: #006be6; /* JLPT 專屬紅色 */
+        }
+.page-title-badge .num {
+    background-color: #1e73be; /* 桃紅色圓圈 */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50% 50% 50% 0;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* 橘色漸層橫條 */
+.orange-bar {
+    height: 8px;
+    background: linear-gradient(90deg, #ff9900 0%, #ff9900 50%, transparent 100%);
+    margin-top: 10px;
+}
+
+/* 選單清單 */
+.side-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+.highlight-text {
+            font-weight: 600;
+        }
+.side-menu li {
+    border: 1px solid #ddd; /* 灰色線條 */
+    margin-bottom: -1px; /* 防止雙線條 */
+    background: #fdfdfd;
+}
+
+.side-menu li:last-child {
+    border-radius: 0 0 8px 8px; /* 下方圓角 */
+}
+
+.side-menu a {
+    display: block;
+    padding: 15px 10px 15px 35px; /* 為圖示留空間 */
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    /* 斜紋背景效果 */
+    background-image: repeating-linear-gradient(
+        45deg,
+        #f9f9f9,
+        #f9f9f9 5px,
+        
+        #ffffff 5px,
+        #ffffff 10px
+    );
+    
+}
+.side-menu a:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* 紅色播放圖示 */
+.side-menu a::before {
+    content: '▶';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1e73be;
+    font-size: 12px;
+}
+.link-text {
+            color: var(--link-blue);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+/* 滑鼠經過效果 */
+.side-menu a:hover {
+    background-image: none;
+    background-color: #f0f0f0;
+}
+/* 照片限制：確保側邊欄圖片不會爆開 */
+.sidebar-image-box img {
+    width: 100%;    /* 寬度百分之百跟隨側邊欄 */
+    max-width: 280px; 
+    height: auto;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.page-title-badge {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-top: 5px solid #1e73be; /* 頂部紅條 */
+}
+
+/* --- 右側內容樣式 --- */
+.page-article {
+    min-width: 0; /* 防止 Flex 子元素溢出 */
+    flex-grow: 1; /* 自動填滿剩餘空間 */
+}
+
+.article-header img {
+    /* 圓角設定，數值越大越圓 */
+    border-radius: 5px; 
+    
+    /* 灰色線條：實線、1像素寬、顏色為中灰色 */
+    border: 1px solid #ccc; 
+    
+    /* 確保圖片適應容器 */
+    max-width: 100%;
+    height: auto;
+    display: block; /* 消除圖片下方微小間隙 */
+}
+
+.grid-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 兩欄並排 */
+    gap: 40px 20px; /* 上下與左右間距 */
+}
+
+.info-block h3 {
+    color: #005599;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    font-size: 16px;
+}</style>
+</head>
+<body>
+<header class="jlpt-header">
+<div class="header-top">
+  <a href="../gian.html">
+    <div class="row-logo">
+      <img src="../pik/vlet.png" alt="JLPT Logo" class="main-logo">
+    </div>
+     </a>
+    <div class="row-utils">
+      <div class="lang-links">
+      <span class="divider">|</span>
+      <a href="#">English</a>
+      <span class="divider">|</span>
+      <a href="../index.html">字喃繁体</a>
+      <span class="divider">|</span>
+      <a href="#">繁體中文</a>
+    </div>
+      <div class="search-controls">
+       𠳨| <a href="../index.html">HOME</a> | 
+        <div class="search-box">
+          <input type="text" placeholder="Google 提供">
+          <button class="search-btn">尋斂</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav-grid">
+    <a href="VLET.html" class="nav-item" style="  background: #1e73be; color: white;"><ruby>期試打價能力㗂越𪜀咦<rt  style="color: white;">Kỳ thi đánh giá năng lực tiếng việt là gì</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>実施期試和通報結果<rt>Thực thi kỳ thi và thông báo kết quả</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>規程手続預試<rt>Quy trình thủ tục dự thi</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>参預直線<rt>Tham dự trực tuyến</rt></ruby></a>
+    
+    <a href="#" class="nav-item"><ruby>向引撝冊和材料<rt>Hướng dẫn về sách và tài liệu</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>発行証紙期試<rt>Phát hành chứng chỉ kỳ thi</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>数料統計<rt>Số liệu thống kê</rt></ruby></a>
+    <a href="#" class="nav-item"><ruby>句𠳨常﨤<rt>Câu hỏi thường gắp</rt></ruby></a>
+  </nav>
+</header>
+<div class="main-content-wrapper">
+    <aside class="inner-sidebar">
+        <div class="page-title-badge">
+            <span class="num">01</span>
+            <div class="title-text">
+                <ruby>期試打價能力㗂越𪜀咦<rt>Kỳ thi đánh giá năng lực tiếng việt là gì</rt></ruby>
+            </div>
+            <div class="orange-bar"></div>
+        </div>
+
+        <ul class="side-menu">
+            <li><a href="VLET.html"><ruby>𠳒発表𧵑班組職<rt>lời phát biểu của ban tổ chức</rt></ruby></a></li>
+            <li><a href="md.html" ><ruby>目標和歴史<rt>mục tiêu và lịch sử</rt></a></li>
+            <li><a href="uudiem.html"><ruby>優点𧵑期試打價能力㗂越<rt>ưu điểm của kỳ thi đánh giá năng lực tiếng việt</rt></ruby></a></li>
+            <li><a href="dacdiem.html"><ruby>特点𧵑期試<rt>đặc điểm của kỳ thi</rt></ruby></a></li>
+            <li><a href="tieuchuan.html">V1～V6：<ruby>標準打價<rt>tiêu chuẩn đánh giá</rt></ruby></a></li>
+            <li><a href="vleton.html" ><ruby>期試打價能力㗂越直線<rt>kỳ thi đánh giá năng lực tiếng việt trực tuyến</rt></ruby></a></li>
+            <li><a href="vletcefr.html" class="active-item"><ruby>榜対照参考遶穹CEFR<rt>bảng đối chiếu tham khảo khung CERF</rt></ruby></a></li>
+        </ul>
+
+        <div class="exam-date-box">
+        <div class="exam-header" >
+            <ruby>連絡班組職<rt style="color: white;">liên lạc ban tổ chức</rt></ruby>
+        </div>
+        <div class="exam-body">
+            <p>TEL：03-688-019</p>
+            <p>Mail：vletbantochuc@vlpt.vn</p>
+            <div class="exam-footer" style="font-family: 'HanNomGothic', serif; font-size: 13px;">
+                <p>・𪵯役𠓨9:00-18:00次二𦤾次六行旬(外除仍日礼)</p>
+            </div>
+        </div>
+    </div>
+    </aside>
+    <article class="page-article">
+      <div class="article-header">
+              <img src="../pik/u8.png" alt="日本語能力試験（にほんごのうりょくしけん）とは" style="width: 100%; height: auto;">
+      </div>
+<div class="article-content" style="color: #4e4e4e;">
+        <div class="content-text" style="padding-top: 14px;">
+<ruby>穹<rt>Khung</rt></ruby><ruby>参照<rt>tham chiếu</rt></ruby><ruby>能力<rt>năng lực</rt></ruby>
+    <ruby>㗂<rt>tiếng</rt></ruby><ruby>越<rt>Việt</rt></ruby> VLET
+    <ruby>得<rt>được</rt></ruby><ruby>磋<rt>cho</rt></ruby><ruby>𥩯<rt>ra</rt></ruby><ruby>𥄮<rt>nhằm</rt></ruby>
+    <ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby><ruby>和<rt>và</rt></ruby><ruby>摹<rt>mô</rt></ruby><ruby>写<rt>phỏng</rt></ruby>
+    <ruby>程度<rt>trình độ</rt></ruby><ruby>使用<rt>sử dụng</rt></ruby><ruby>㗂<rt>tiếng</rt></ruby><ruby>越<rt>Việt</rt></ruby>
+    <ruby>𧵑<rt>của</rt></ruby><ruby>人<rt>người</rt></ruby><ruby>学<rt>học</rt></ruby>。
+    
+    <ruby>系統<rt>Hệ thống</rt></ruby><ruby>㖠<rt>này</rt></ruby>
+    <ruby>参考<rt>tham khảo</rt></ruby><ruby>模型<rt>mô hình</rt></ruby><ruby>分<rt>phân</rt></ruby><ruby>級<rt>cấp</rt></ruby>
+    <ruby>𧵑<rt>của</rt></ruby>CEFR，
+    <ruby>一<rt>một</rt></ruby><ruby>穹<rt>khung</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>
+    <ruby>能力<rt>năng lực</rt></ruby><ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+    <ruby>得<rt>được</rt></ruby><ruby>使用<rt>sử dụng</rt></ruby>
+    <ruby>広<rt>rộng</rt></ruby><ruby>𪶩<rt>rãi</rt></ruby>
+    <ruby>𨑗<rt>trên</rt></ruby><ruby>世界<rt>thế giới</rt></ruby>。
+    </div>
+    <div class="section-header">
+        
+        <div class="red-dots">
+            <div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="header-title">
+            1.<ruby>𢲫頭<rt>mở đầu</rt>
+        </div>
+        
+    </div>
+
+<div class="content-text">
+    <p>
+        Common European Framework of Reference for Languages (CEFR))
+        <ruby>𪜀<rt>là</rt></ruby><ruby>穹<rt>khung</rt></ruby><ruby>参照<rt>tham chiếu</rt></ruby>
+        <ruby>衆<rt>chung</rt></ruby><ruby>洲<rt>Châu</rt></ruby><ruby>欧<rt>Âu</rt></ruby>
+        <ruby>撝<rt>về</rt></ruby><ruby>能力<rt>năng lực</rt></ruby><ruby>言語<rt>ngôn ngữ</rt></ruby>。
+        <ruby>低<rt>Đây</rt></ruby><ruby>𪜀<rt>là</rt></ruby><ruby>系統<rt>hệ thống</rt></ruby><ruby>標準<rt>tiêu chuẩn</rt></ruby>
+        <ruby>国際<rt>quốc tế</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>公布<rt>công bố</rt></ruby>
+        <ruby>年<rt>năm</rt></ruby> 2001 <ruby>𪜀<rt>là</rt></ruby> Council of Europe 
+        <ruby>𥄮<rt>nhằm</rt></ruby><ruby>摹<rt>mô</rt></ruby><ruby>写<rt>phỏng</rt></ruby><ruby>和<rt>và</rt></ruby>
+        <ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>
+        <ruby>程度<rt>trình độ</rt></ruby><ruby>使用<rt>sử dụng</rt></ruby>
+        <ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+        <ruby>𧵑<rt>của</rt></ruby><ruby>人<rt>người</rt></ruby><ruby>学<rt>học</rt></ruby>。
+    </p>
+
+    <p>
+        CEFR <ruby>𬨟<rt>chia</rt></ruby><ruby>能力<rt>năng lực</rt></ruby><ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+        <ruby>成<rt>thành</rt></ruby> 6 <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby>：<br>
+        A1，A2 – <ruby>程度<rt>trình độ</rt></ruby><ruby>基本<rt>cơ bản</rt></ruby><br>
+        B1，B2 – <ruby>程度<rt>trình độ</rt></ruby><ruby>中<rt>trung</rt></ruby><ruby>級<rt>cấp</rt></ruby><br>
+        C1，C2 – <ruby>程度<rt>trình độ</rt></ruby><ruby>高<rt>cao</rt></ruby><ruby>級<rt>cấp</rt></ruby>
+        (<ruby>中<rt>trong</rt></ruby><ruby>𪦆<rt>đó</rt></ruby> C2 <ruby>𪜀<rt>là</rt></ruby>
+        <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby><ruby>高<rt>cao</rt></ruby><ruby>弌<rt>nhất</rt></ruby>)
+    </p>
+
+    <p>
+        <ruby>每<rt>Mỗi</rt></ruby><ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>摹<rt>mô</rt></ruby><ruby>写<rt>phỏng</rt></ruby><ruby>憑<rt>bằng</rt></ruby>
+        <ruby>各<rt>các</rt></ruby><ruby>能力<rt>năng lực</rt></ruby><ruby>具体<rt>cụ thể</rt></ruby>，
+        <ruby>譬<rt>thí</rt></ruby><ruby>喻<rt>dụ</rt></ruby><ruby>如<rt>như</rt></ruby>
+        <ruby>人<rt>người</rt></ruby><ruby>学<rt>học</rt></ruby><ruby>固<rt>có</rt></ruby><ruby>体<rt>thể</rt></ruby>
+        <ruby>読<rt>đọc</rt></ruby>，<ruby>𦖑<rt>nghe</rt></ruby>，<ruby>呐<rt>nói</rt></ruby>
+        <ruby>或<rt>hoặc</rt></ruby><ruby>曰<rt>viết</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>仍<rt>những</rt></ruby><ruby>咦<rt>gì</rt></ruby><ruby>中<rt>trong</rt></ruby><ruby>実際<rt>thực tế</rt></ruby>。
+        <ruby>𫼰<rt>Nhờ</rt></ruby><ruby>系統<rt>hệ thống</rt></ruby><ruby>摹<rt>mô</rt></ruby><ruby>写<rt>phỏng</rt></ruby>
+        <ruby>㖠<rt>này</rt></ruby>，<ruby>程度<rt>trình độ</rt></ruby><ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+        <ruby>固<rt>có</rt></ruby><ruby>体<rt>thể</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby><ruby>和<rt>và</rt></ruby>
+        <ruby>𢫘<rt>hiểu</rt></ruby><ruby>𠁔<rt>theo</rt></ruby>
+        <ruby>一<rt>một</rt></ruby><ruby>格<rt>cách</rt></ruby><ruby>統<rt>thống</rt></ruby><ruby>弌<rt>nhất</rt></ruby>
+        <ruby>𡧲<rt>giữa</rt></ruby><ruby>各<rt>các</rt></ruby><ruby>国家<rt>quốc gia</rt></ruby>。
+    </p>
+
+    <p>
+        <ruby>現<rt>Hiện</rt></ruby><ruby>𫢩<rt>nay</rt></ruby> CEFR 
+        <ruby>㐌<rt>đã</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>訳<rt>dịch</rt></ruby>
+        <ruby>𫥧<rt>ra</rt></ruby><ruby>欣<rt>hơn</rt></ruby> 40 <ruby>言語<rt>ngôn ngữ</rt></ruby>
+        <ruby>和<rt>và</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>使用<rt>sử dụng</rt></ruby>
+        <ruby>広<rt>rộng</rt></ruby><ruby>𪶩<rt>rãi</rt></ruby>
+        <ruby>中<rt>trong</rt></ruby><ruby>教育<rt>giáo dục</rt></ruby>，
+        <ruby>講<rt>giảng</rt></ruby><ruby>𠰺<rt>dạy</rt></ruby><ruby>和<rt>và</rt></ruby>
+        <ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>
+        <ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+        <ruby>𨑗<rt>trên</rt></ruby><ruby>全<rt>toàn</rt></ruby><ruby>世界<rt>thế giới</rt></ruby>。
+    </p>
+</ul>
+</div>
+<div class="section-header">
+<div class="red-dots">
+<div class="dot"></div><div class="dot"></div>
+<div class="dot"></div><div class="dot"></div>
+</div>
+
+<div class="header-title">
+2.<ruby>方法対照𡧲結果𧵑期試VLET<rt>Phương pháp đối chiếu giữa kết quả của kỳ thi VLET</rt></ruby>
+</div>
+
+</div>
+
+<div class="content-text">
+<p>
+        <ruby>方法<rt>Phương pháp</rt></ruby><ruby>対照<rt>đối chiếu</rt></ruby>
+        <ruby>𡧲<rt>giữa</rt></ruby><ruby>結果<rt>kết quả</rt></ruby>
+        <ruby>𧵑<rt>của</rt></ruby><ruby>期<rt>kỳ</rt></ruby><ruby>試<rt>thi</rt></ruby> VLET – 
+        <ruby>其<rt>kỳ</rt></ruby><ruby>施<rt>thi</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>假<rt>giá</rt></ruby>
+        <ruby>能力<rt>năng lực</rt></ruby><ruby>㗂<rt>tiếng</rt></ruby><ruby>越<rt>Việt</rt></ruby>
+        <ruby>吧<rt>và</rt></ruby><ruby>各<rt>các</rt></ruby><ruby>急<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby>
+        <ruby>𧵑<rt>của</rt></ruby> CEFR <ruby>得<rt>được</rt></ruby><ruby>磋<rt>cho</rt></ruby><ruby>𥩯<rt>ra</rt></ruby>
+        <ruby>𢭸<rt>dựa</rt></ruby><ruby>𨑗<rt>trên</rt></ruby><ruby>規<rt>quy</rt></ruby><ruby>程<rt>trình</rt></ruby>
+        <ruby>設立<rt>thiết lập</rt></ruby><ruby>準<rt>chuẩn</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>(standard setting)。
+    </p>
+
+    <p>
+        <ruby>中<rt>Trong</rt></ruby><ruby>過程<rt>quá trình</rt></ruby><ruby>㖠<rt>này</rt></ruby>，
+        <ruby>各<rt>các</rt></ruby><ruby>專家<rt>chuyên gia</rt></ruby><ruby>中<rt>trong</rt></ruby><ruby>和<rt>và</rt></ruby>
+        <ruby>外<rt>ngoài</rt></ruby><ruby>囦<rt>nước</rt></ruby><ruby>固<rt>có</rt></ruby>
+        <ruby>見識<rt>kiến thức</rt></ruby><ruby>溇<rt>sâu</rt></ruby><ruby>撝<rt>về</rt></ruby> CEFR，
+        <ruby>考<rt>khảo</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>言語<rt>ngôn ngữ</rt></ruby><ruby>和<rt>và</rt></ruby>
+        <ruby>過程<rt>quá trình</rt></ruby><ruby>発展<rt>phát triển</rt></ruby>
+        <ruby>能力<rt>năng lực</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>人<rt>người</rt></ruby><ruby>学<rt>học</rt></ruby>
+        <ruby>外<rt>ngoại</rt></ruby><ruby>語<rt>ngữ</rt></ruby><ruby>㐌<rt>đã</rt></ruby>
+        <ruby>参加<rt>tham gia</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>
+        <ruby>各<rt>các</rt></ruby><ruby>句<rt>câu</rt></ruby><ruby>𠳨<rt>hỏi</rt></ruby>
+        <ruby>中<rt>trong</rt></ruby><ruby>俳<rt>bài</rt></ruby><ruby>試<rt>thi</rt></ruby> VLET。
+    </p>
+
+    <p>
+        <ruby>具体<rt>Cụ thể</rt></ruby>，<ruby>各<rt>các</rt></ruby><ruby>專家<rt>chuyên gia</rt></ruby>
+        <ruby>進行<rt>tiến hành</rt></ruby><ruby>覘<rt>khảo</rt></ruby><ruby>察<rt>sát</rt></ruby>
+        <ruby>各<rt>các</rt></ruby><ruby>句<rt>câu</rt></ruby><ruby>𠳨<rt>hỏi</rt></ruby>
+        <ruby>属<rt>thuộc</rt></ruby><ruby>各<rt>các</rt></ruby><ruby>份<rt>phần</rt></ruby><ruby>技能<rt>kỹ năng</rt></ruby><ruby>如<rt>như</rt></ruby>：<br>
+        <ruby>読<rt>Đọc</rt></ruby><ruby>曉<rt>hiểu</rt></ruby> <br>
+        <ruby>𦖑<rt>Nghe</rt></ruby><ruby>曉<rt>hiểu</rt></ruby><br>
+        <ruby>同時<rt>Đồng thời</rt></ruby><ruby>確定<rt>xác định</rt></ruby><ruby>墨<rt>mức</rt></ruby><ruby>度<rt>độ</rt></ruby>
+        <ruby>相応<rt>tương ứng</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>曾<rt>từng</rt></ruby>
+        <ruby>句<rt>câu</rt></ruby><ruby>𠳨<rt>hỏi</rt></ruby><ruby>遶<rt>theo</rt></ruby>
+        <ruby>各<rt>các</rt></ruby><ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby><ruby>𧵑<rt>của</rt></ruby> CEFR (A1 – C2)。
+    </p>
+
+    <p>
+        <ruby>𡢐<rt>Sau</rt></ruby><ruby>欺<rt>khi</rt></ruby><ruby>完成<rt>hoàn thành</rt></ruby>
+        <ruby>過程<rt>quá trình</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>，
+        <ruby>各<rt>các</rt></ruby><ruby>与<rt>dữ</rt></ruby><ruby>料<rt>liệu</rt></ruby>
+        <ruby>收<rt>thu</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>進行<rt>tiến hành</rt></ruby><ruby>分析<rt>phân tích</rt></ruby><ruby>統計<rt>thống kê</rt></ruby>
+        <ruby>抵<rt>để</rt></ruby><ruby>確定<rt>xác định</rt></ruby><ruby>各<rt>các</rt></ruby>
+        <ruby>仰<rt>ngưỡng</rt></ruby><ruby>点<rt>điểm</rt></ruby>(cut-off score)
+        <ruby>𨑗<rt>trên</rt></ruby><ruby>梯<rt>thang</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>総<rt>tổng</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>期<rt>kỳ</rt></ruby><ruby>試<rt>thi</rt></ruby> VLET。
+        <ruby>仍<rt>Những</rt></ruby><ruby>仰<rt>ngưỡng</rt></ruby><ruby>点<rt>điểm</rt></ruby><ruby>㖠<rt>này</rt></ruby>
+        <ruby>得<rt>được</rt></ruby><ruby>使用<rt>sử dụng</rt></ruby><ruby>抵<rt>để</rt></ruby>
+        <ruby>確定<rt>xác định</rt></ruby><ruby>墨<rt>mức</rt></ruby><ruby>参照<rt>tham chiếu</rt></ruby> CEFR 
+        <ruby>相応<rt>tương ứng</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>結果<rt>kết quả</rt></ruby>
+        <ruby>𧵑<rt>của</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>。
+    </p>
+
+    <p>
+        <ruby>𫼰<rt>Nhờ</rt></ruby><ruby>方法<rt>phương pháp</rt></ruby><ruby>㖠<rt>này</rt></ruby>，
+        <ruby>結果<rt>kết quả</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>期<rt>kỳ</rt></ruby><ruby>試<rt>thi</rt></ruby> VLET 
+        <ruby>固体<rt>có thể</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>対照<rt>đối chiếu</rt></ruby>
+        <ruby>𠇍<rt>với</rt></ruby><ruby>標<rt>tiêu</rt></ruby><ruby>准<rt>chuẩn</rt></ruby>
+        <ruby>国際<rt>quốc tế</rt></ruby> CEFR，
+        <ruby>𠢞<rt>giúp</rt></ruby><ruby>役<rt>việc</rt></ruby><ruby>打<rt>đánh</rt></ruby><ruby>價<rt>giá</rt></ruby>
+        <ruby>能力<rt>năng lực</rt></ruby><ruby>㗂<rt>tiếng</rt></ruby><ruby>越<rt>Việt</rt></ruby>
+        <ruby>𨔾<rt>trở</rt></ruby><ruby>𢧚<rt>nên</rt></ruby>
+        <ruby>客観<rt>khách quan</rt></ruby>，<ruby>明白<rt>minh bạch</rt></ruby>
+        <ruby>和<rt>và</rt></ruby><ruby>易<rt>dễ</rt></ruby><ruby>𢫘<rt>hiểu</rt></ruby>
+        <ruby>𠁔<rt>theo</rt></ruby><ruby>𨑗<rt>trên</rt></ruby>
+        <ruby>範囲<rt>phạm vi</rt></ruby><ruby>国際<rt>quốc tế</rt></ruby>。
+    </p>
+</div>
+<div class="section-header">
+<div class="red-dots">
+<div class="dot"></div><div class="dot"></div>
+<div class="dot"></div><div class="dot"></div>
+</div>
+
+<div class="header-title">
+<ruby>事相応𡧲総点VLET 和級度CEFR<rt>Sự tương ứng giữa tổng điểm VLET và cấp độ CEFR</rt></ruby>
+
+</div>
+</div>
+<p><ruby>役<rt>Việc</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby><ruby>参照<rt>tham chiếu</rt></ruby><ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>中<rt>trong</rt></ruby><ruby>期<rt>kỳ</rt></ruby><ruby>試<rt>thi</rt></ruby> VLET <ruby>得<rt>được</rt></ruby><ruby>実現<rt>thực hiện</rt></ruby><ruby>𢭸<rt>dựa</rt></ruby><ruby>𨑗<rt>trên</rt></ruby><ruby>総<rt>tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby><ruby>実際<rt>thực tế</rt></ruby><ruby>如<rt>như</rt></ruby><ruby>𡢐<rt>sau</rt></ruby>：</p>
+<img src="../pik/pic.png" alt="日本語能力試験（にほんごのうりょくしけん）とは" style="width: 100%; height: auto;">
+    <p> (1)<ruby>條件<rt>Điều kiện</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby></strong><br>
+    <ruby>級<rt>Cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>衹<rt>chỉ</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby><ruby>対<rt>đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>仍<rt>những</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby><ruby>達<rt>đạt</rt></ruby><ruby>結果<rt>kết quả</rt></ruby><ruby>達<rt>đạt</rt></ruby><ruby>要求<rt>yêu cầu</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>曾<rt>từng</rt></ruby><ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> VLET。<ruby>𠮩<rt>Khi</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>達<rt>đạt</rt></ruby><ruby>墨<rt>mức</rt></ruby><ruby>点<rt>điểm</rt></ruby><ruby>最<rt>tối</rt></ruby><ruby>少<rt>thiểu</rt></ruby><ruby>於<rt>ở</rt></ruby><ruby>不<rt>bất</rt></ruby><ruby>其<rt>kỳ</rt></ruby><ruby>份<rt>phần</rt></ruby><ruby>試<rt>thi</rt></ruby><ruby>芾<rt>nào</rt></ruby>，<ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>𫪣<rt>sẽ</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>。</p>
+
+    <p> (2)<ruby>帰<rt>Quy</rt></ruby><ruby>𢬭<rt>đổi</rt></ruby><ruby>具体<rt>cụ thể</rt></ruby><ruby>𢭸<rt>dựa</rt></ruby><ruby>𨑗<rt>trên</rt></ruby><ruby>総<rt>tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby> VLET</strong></p>
+    
+    <table style="width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.95em;">
+        <tr style="background: #eee;">
+            <th style="border: 1px solid #ccc; padding: 8px;">VLET <ruby>級<rt>Cấp</rt></ruby></th>
+            <th style="border: 1px solid #ccc; padding: 8px;"><ruby>点<rt>Điểm</rt></ruby><ruby>数<rt>số</rt></ruby></th>
+            <th style="border: 1px solid #ccc; padding: 8px;">CEFR <ruby>級<rt>Cấp</rt></ruby></th>
+        </tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">V6</td><td style="border: 1px solid #ccc; padding: 8px;">100 - 200</td><td style="border: 1px solid #ccc; padding: 8px;">A1</td></tr>
+        <tr><td rowspan="2" style="border: 1px solid #ccc; padding: 8px;">V5</td><td style="border: 1px solid #ccc; padding: 8px;">100 - 149</td><td style="border: 1px solid #ccc; padding: 8px;">A1</td></tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">150+</td><td style="border: 1px solid #ccc; padding: 8px;">A2</td></tr>
+        <tr><td rowspan="2" style="border: 1px solid #ccc; padding: 8px;">V4</td><td style="border: 1px solid #ccc; padding: 8px;">100 - 179</td><td style="border: 1px solid #ccc; padding: 8px;">A2</td></tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">180+</td><td style="border: 1px solid #ccc; padding: 8px;">B1</td></tr>
+        <tr><td rowspan="2" style="border: 1px solid #ccc; padding: 8px;">V3</td><td style="border: 1px solid #ccc; padding: 8px;">120 - 184</td><td style="border: 1px solid #ccc; padding: 8px;">B1</td></tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">185+</td><td style="border: 1px solid #ccc; padding: 8px;">B2</td></tr>
+        <tr><td rowspan="2" style="border: 1px solid #ccc; padding: 8px;">V2</td><td style="border: 1px solid #ccc; padding: 8px;">120 - 169</td><td style="border: 1px solid #ccc; padding: 8px;">B2</td></tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">170+</td><td style="border: 1px solid #ccc; padding: 8px;">C1</td></tr>
+        <tr><td rowspan="2" style="border: 1px solid #ccc; padding: 8px;">V1</td><td style="border: 1px solid #ccc; padding: 8px;">120 - 154</td><td style="border: 1px solid #ccc; padding: 8px;">C1</td></tr>
+        <tr><td style="border: 1px solid #ccc; padding: 8px;">155+</td><td style="border: 1px solid #ccc; padding: 8px;">C2</td></tr>
+    </table>
+
+    <p> (3)<ruby>性質<rt>Tính chất</rt></ruby><ruby>参照<rt>tham chiếu</rt></ruby></strong><br>
+    <ruby>級<rt>Cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby><ruby>止<rt>chỉ</rt></ruby><ruby>忙<rt>mang</rt></ruby><ruby>性質<rt>tính chất</rt></ruby><ruby>參<rt>tham</rt></ruby><ruby>照<rt>chiếu</rt></ruby><ruby>朱<rt>cho</rt></ruby><ruby>各<rt>các</rt></ruby><ruby>能力<rt>năng lực</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>都<rt>đo</rt></ruby><ruby>量<rt>lường</rt></ruby><ruby>中<rt>trong</rt></ruby><ruby>其<rt>kỳ</rt></ruby><ruby>施<rt>thi</rt></ruby> VLET，<ruby>包<rt>bao</rt></ruby><ruby>歉<rt>gồm</rt></ruby>：<ruby>見<rt>kiến</rt></ruby><ruby>識<rt>thức</rt></ruby><ruby>言<rt>ngôn</rt></ruby><ruby>語<rt>ngữ</rt></ruby>(<ruby>字<rt>chữ</rt></ruby><ruby>曰<rt>viết</rt></ruby>，<ruby>慈<rt>từ</rt></ruby><ruby>彙<rt>vựng</rt></ruby>，<ruby>語<rt>ngữ</rt></ruby><ruby>法<rt>pháp</rt></ruby>)，<ruby>読<rt>đọc</rt></ruby><ruby>曉<rt>hiểu</rt></ruby><ruby>和<rt>và</rt></ruby><ruby>𦖑<rt>nghe</rt></ruby><ruby>曉<rt>hiểu</rt></ruby>。<ruby>各<rt>Các</rt></ruby><ruby>技<rt>kỹ</rt></ruby><ruby>能<rt>năng</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>試<rt>thi</rt></ruby><ruby>如<rt>như</rt></ruby><ruby>呐<rt>nói</rt></ruby><ruby>和<rt>và</rt></ruby><ruby>曰<rt>viết</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>并<rt>tính</rt></ruby><ruby>𠓨<rt>vào</rt></ruby><ruby>結果<rt>kết quả</rt></ruby><ruby>㖠<rt>này</rt></ruby>。</p>
+</div>
+</ul>
+<div class="section-header">
+<div class="red-dots">
+<div class="dot"></div><div class="dot"></div>
+<div class="dot"></div><div class="dot"></div>
+</div>
+
+<div class="header-title">
+<ruby>格覘程度CEFR𨑗紙証紙<rt>Cách xem trình độ CEFR trên giấy chứng chỉ</rt></ruby>
+
+</div>
+
+</div>
+
+<p>
+        <ruby>如<rt>Như</rt></ruby><ruby>中<rt>trong</rt></ruby><ruby>譬<rt>thí</rt></ruby><ruby>喻<rt>dụ</rt></ruby>
+        <ruby>𨑜<rt>dưới</rt></ruby><ruby>低<rt>đây</rt></ruby>，
+        <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>𠱊<rt>sẽ</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>通<rt>thông</rt></ruby><ruby>報<rt>báo</rt></ruby><ruby>如<rt>như</rt></ruby>
+        <ruby>一<rt>một</rt></ruby><ruby>中<rt>trong</rt></ruby><ruby>仍<rt>những</rt></ruby>
+        <ruby>通<rt>thông</rt></ruby><ruby>信<rt>tin</rt></ruby><ruby>参考<rt>tham khảo</rt></ruby>。
+    </p>
+
+    <p>
+        <ruby>対<rt>Đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>達<rt>đạt</rt></ruby><ruby>要求<rt>yêu cầu</rt></ruby>，
+        <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR 
+        <ruby>相<rt>tương</rt></ruby><ruby>応<rt>ứng</rt></ruby><ruby>𠇍<rt>với</rt></ruby>
+        <ruby>総<rt>tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby><ruby>𠱊<rt>sẽ</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>。
+    </p>
+
+    <p>
+        <ruby>対<rt>Đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>空<rt>không</rt></ruby><ruby>達<rt>đạt</rt></ruby>
+        (<ruby>包<rt>bao</rt></ruby><ruby>𪞍<rt>gồm</rt></ruby>
+        <ruby>哿<rt>cả</rt></ruby><ruby>場合<rt>trường hợp</rt></ruby>
+        <ruby>総<rt>tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby><ruby>達<rt>đạt</rt></ruby>
+        <ruby>或<rt>hoặc</rt></ruby><ruby>越<rt>vượt</rt></ruby>
+        <ruby>墨<rt>mức</rt></ruby><ruby>達<rt>đạt</rt></ruby>
+        <ruby>扔<rt>nhưng</rt></ruby><ruby>固<rt>có</rt></ruby>
+        <ruby>𠃣<rt>ít</rt></ruby><ruby>弌<rt>nhất</rt></ruby>
+        <ruby>一<rt>một</rt></ruby><ruby>份<rt>phần</rt></ruby>
+        <ruby>試<rt>thi</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>達<rt>đạt</rt></ruby>
+        <ruby>墨<rt>mức</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>最<rt>tối</rt></ruby><ruby>少<rt>thiểu</rt></ruby>)，
+        <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR <ruby>𠱊<rt>sẽ</rt></ruby>
+        <ruby>空<rt>không</rt></ruby><ruby>得<rt>được</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>
+        <ruby>和<rt>và</rt></ruby><ruby>𫢼<rt>thay</rt></ruby><ruby>𠓨<rt>vào</rt></ruby>
+        <ruby>𪦆<rt>đó</rt></ruby><ruby>𠱊<rt>sẽ</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>
+        <ruby>記<rt>ký</rt></ruby><ruby>号<rt>hiệu</rt></ruby>『＊』。
+    </p>
+    ※ <ruby>譬<rt>Thí</rt></ruby><ruby>喻<rt>dụ</rt></ruby>
+        <ruby>𨑜<rt>dưới</rt></ruby><ruby>低<rt>đây</rt></ruby>
+        <ruby>𪜀<rt>là</rt></ruby><ruby>場合<rt>trường hợp</rt></ruby>
+        <ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>預<rt>dự</rt></ruby><ruby>試<rt>thi</rt></ruby>
+        <ruby>於<rt>ở</rt></ruby><ruby>囦<rt>ngoài</rt></ruby><ruby>外<rt>nước</rt></ruby>。<br>
+        <ruby>中<rt>Trong</rt></ruby><ruby>場合<rt>trường hợp</rt></ruby>
+        <ruby>預<rt>dự</rt></ruby><ruby>試<rt>thi</rt></ruby>
+        <ruby>在<rt>tại</rt></ruby><ruby>越南<rt>Việt Nam</rt></ruby>，
+        <ruby>庶<rt>thứ</rt></ruby><ruby>項<rt>hạng</rt></ruby>
+        <ruby>份<rt>phần</rt></ruby><ruby>百<rt>trăm</rt></ruby> (percentile) 
+        <ruby>𠱊<rt>sẽ</rt></ruby><ruby>空<rt>không</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>顕<rt>hiển</rt></ruby><ruby>是<rt>thị</rt></ruby>。
+
+    <div class="description1">
+
+    </div>
+
+    <div class="section-title1">【<ruby>合<rt>ごう</rt></ruby><ruby>格<rt>かく</rt></ruby><ruby>者<rt>しゃ</rt></ruby>への<ruby>通<rt>つう</rt></ruby><ruby>知<rt>ち</rt></ruby><ruby>例<rt>れい</rt></ruby> (N4の<ruby>場<rt>ば</rt></ruby><ruby>合<rt>あい</rt></ruby>)】</div>
+    
+    <table class="score-table1">
+        <tr>
+            <th colspan="2" class="bg-pink1">
+               <ruby>点成份<rt>điểm thành phần</rt></ruby><br>Scores by Scoring Section
+            </th>
+            <th class="bg-pink1">
+                <ruby>総<rt>Tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>達<rt>đạt</rt></ruby><ruby>得<rt>được</rt></ruby><br>Total Score
+            </th>
+        </tr>
+        <tr>
+            <td> <ruby>見<rt>Kiến</rt></ruby><ruby>識<rt>thức</rt></ruby><ruby>言<rt>ngôn</rt></ruby><ruby>語<rt>ngữ</rt></ruby></strong>
+        ( <ruby>字<rt>chữ</rt></ruby><ruby>喃<rt>Nôm</rt></ruby> ・ 
+        <ruby>詞<rt>từ</rt></ruby><ruby>彙<rt>vựng</rt></ruby> ・ 
+        <ruby>語<rt>ngữ</rt></ruby><ruby>法<rt>pháp</rt></ruby> ) ・ 
+         <ruby>読<rt>Đọc</rt></ruby><ruby>曉<rt>hiểu</rt></ruby></strong></td>
+            <td><ruby>𦖑<rt>nghe</rt></ruby><ruby>曉<rt>hiểu</rt></ruby></td>
+            <td rowspan="2" class="score-display1">120 / 200</td>
+        </tr>
+        <tr>
+            <td class="score-display1">70 / 120</td>
+            <td class="score-display1">50 / 80</td>
+        </tr>
+    </table>
+
+    <div class="ref-label1"><ruby>通信参考<rt>Thông tin tham khảo</rt></ruby> Reference Information ※</div>
+    <div class="ref-wrapper1">
+        <div class="ref-box1" style="flex: 1.5;">
+           <div class="ref-header1"><ruby>比例正確<rt>tỉ lệ chính xác</rt></ruby><br>Percentage of Correct Responses</div>
+            <div class="ref-content-row1">
+                <div class="ref-sub-col1">字喃・詞彙<br>T</div>
+                <div class="ref-sub-col1">語法<br>T</div>
+                <div class="ref-sub-col1">読曉<br>C</div>
+            </div>
+        </div>
+        <div class="ref-box1" style="flex: 1; margin: 0 10px;">
+            <div class="ref-header1"><ruby>次項份百<rt>thứ hạng phần trăm</rt></ruby><br>Percentile Rank</div>
+            <div class="ref-content-row1" style="justify-content: center; font-size: 1.1rem;">71.4</div>
+        </div>
+        <div class="ref-box1 highlight-red1">
+            <div class="ref-header1"><ruby>級度<rt>cấp độ</rt></ruby>CEFR<br>CEFR Level</div>
+            <div class="ref-content-row1" style="justify-content: center;"><span class="red-text1">A2</span></div>
+        </div>
+    </div>
+
+    <div class="section-title1" style="margin-top: 60px;">【<ruby>不<rt>ふ</rt></ruby><ruby>合<rt>ごう</rt></ruby><ruby>格<rt>かく</rt></ruby><ruby>者<rt>しゃ</rt></ruby>への<ruby>通<rt>つう</rt></ruby><ruby>知<rt>ち</rt></ruby><ruby>例<rt>れい</rt></ruby> (N4の<ruby>場<rt>ば</rt></ruby><ruby>合<rt>あい</rt></ruby>)】</div>
+    
+    <table class="score-table1">
+        <tr>
+            <th colspan="2" class="bg-pink1">
+               <ruby>点成份<rt>điểm thành phần</rt></ruby><br>Scores by Scoring Section
+            </th>
+            <th class="bg-pink1">
+                <ruby>総<rt>Tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>達<rt>đạt</rt></ruby><ruby>得<rt>được</rt></ruby><br>Total Score
+            </th>
+        </tr>
+        <tr>
+            <td> <ruby>見<rt>Kiến</rt></ruby><ruby>識<rt>thức</rt></ruby><ruby>言<rt>ngôn</rt></ruby><ruby>語<rt>ngữ</rt></ruby>
+        ( <ruby>字<rt>chữ</rt></ruby><ruby>喃<rt>Nôm</rt></ruby> ・ 
+        <ruby>詞<rt>từ</rt></ruby><ruby>彙<rt>vựng</rt></ruby> ・ 
+        <ruby>語<rt>ngữ</rt></ruby><ruby>法<rt>pháp</rt></ruby> ) ・ 
+         <ruby>読<rt>Đọc</rt></ruby><ruby>曉<rt>hiểu</rt></ruby></td>
+            <td><ruby>𦖑<rt>nghe</rt></ruby><ruby>曉<rt>hiểu</rt></ruby></td>
+            <td rowspan="2" class="score-display1">65 / 200</td>
+        </tr>
+        <tr>
+            <td class="score-display1">40 / 120</td>
+            <td class="score-display1">25 / 80</td>
+        </tr>
+    </table>
+
+    <div class="ref-label1"><ruby>通信参考<rt>Thông tin tham khảo</rt></ruby> Reference Information ※</div>
+    <div class="ref-wrapper1" style="padding-bottom: 30px;">
+        <div class="ref-box1" style="flex: 1.5;">
+            <div class="ref-header1"><ruby>比例正確<rt>tỉ lệ chính xác</rt></ruby><br>Percentage of Correct Responses</div>
+            <div class="ref-content-row1">
+                <div class="ref-sub-col1">字喃・詞彙<br>T</div>
+                <div class="ref-sub-col1">語法<br>T</div>
+                <div class="ref-sub-col1">読曉<br>C</div>
+            </div>
+        </div>
+        <div class="ref-box1" style="flex: 1; margin: 0 10px;">
+            <div class="ref-header1"><ruby>次項份百<rt>thứ hạng phần trăm</rt></ruby><br>Percentile Rank</div>
+            <div class="ref-content-row1" style="justify-content: center; font-size: 1.1rem;">71.4</div>
+        </div>
+        <div class="ref-box1 highlight-red1">
+          <div class="ref-header1"><ruby>級度<rt>cấp độ</rt></ruby>CEFR<br>CEFR Level</div>
+            <div class="ref-content-row1" style="justify-content: center;"><span class="red-text1">A2</span></div>
+        </div>
+        
+    </div>
+    <div style="display:flex; gap:20px;">
+
+  <!-- Tỷ lệ đúng -->
+  <div style="border:1px solid #ccc; padding:15px; width:260px; background: #fff;">
+    <div style="font-size: 0.7rem;color: #002403;">
+      <ruby>比例<rt>Tỉ lệ</rt></ruby><ruby>棟<rt>đúng</rt></ruby>
+    </div>
+
+    <div style="font-size: 0.7rem; line-height:1.6;">
+      <ruby>顕<rt>Hiển</rt></ruby><ruby>示<rt>thị</rt></ruby><ruby>墨<rt>mức</rt></ruby>
+        <ruby>比例<rt>tỉ lệ</rt></ruby><ruby>𫡽<rt>trúng</rt></ruby>
+        <ruby>𠳒<rt>lời</rt></ruby><ruby>棟<rt>đúng</rt></ruby>
+        <ruby>渚<rt>cho</rt></ruby><ruby>曾<rt>từng</rt></ruby>
+        <ruby>句<rt>câu</rt></ruby><ruby>𠳨<rt>hỏi</rt></ruby>。
+        <br>
+
+            <b >G：</b>
+            <ruby>比例<rt>Tỉ lệ</rt></ruby><ruby>棟<rt>đúng</rt></ruby>
+            <ruby>自<rt>từ</rt></ruby> 67% <ruby>𨔾<rt>trở</rt></ruby><ruby>𨑗<rt>lên</rt></ruby>
+            (<ruby>𠐞<rt>Giỏi</rt></ruby>)<br>
+            <b> T：</b>
+            <ruby>比例<rt>Tỉ lệ</rt></ruby><ruby>棟<rt>đúng</rt></ruby>
+            <ruby>自<rt>từ</rt></ruby> 34% <ruby>𦤾<rt>đến</rt></ruby>
+            <ruby>𨑜<rt>dưới</rt></ruby> 67% 
+            (<ruby>中<rt>trung</rt></ruby><ruby>平<rt>bình</rt></ruby>)<br>    
+            <b>C：</b>
+            <ruby>比例<rt>Tỉ lệ</rt></ruby><ruby>棟<rt>đúng</rt></ruby>
+            <ruby>𨑜<rt>dưới</rt></ruby> 34% 
+            (<ruby>𣗓<rt>Chưa</rt></ruby><ruby>達<rt>đạt</rt></ruby>)
+    </div>
+  </div>
+
+
+  <!-- Thứ hạng phần trăm -->
+  <div style="border:1px solid #ccc; padding:15px; width:260px; background: #fff;">
+    <div style="font-size: 0.7rem;color: #002403;">
+      <ruby>次<rt>Thứ</rt></ruby><ruby>項<rt>hạng</rt></ruby><ruby>份<rt>phần</rt></ruby><ruby>百<rt>trăm</rt></ruby>
+    </div>
+
+    <div style="font-size: 0.7rem; line-height:1.6;">
+      <ruby>対<rt>Đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>達<rt>đạt</rt></ruby><ruby>要求<rt>yêu cầu</rt></ruby><ruby>試<rt>thi</rt></ruby>
+        <ruby>於<rt>ở</rt></ruby><ruby>囦<rt>ngoài</rt></ruby><ruby>外<rt>nước</rt></ruby>
+        (<ruby>空<rt>không</rt></ruby><ruby>包<rt>bao</rt></ruby><ruby>𪞍<rt>gồm</rt></ruby>
+        <ruby>場合<rt>trường hợp</rt></ruby><ruby>得<rt>được</rt></ruby>
+        <ruby>免<rt>miễn</rt></ruby><ruby>份<rt>phần</rt></ruby><ruby>𦖑<rt>nghe</rt></ruby>)
+           <ruby>顕<rt>Hiển</rt></ruby><ruby>示<rt>thị</rt></ruby><ruby>比例<rt>tỉ lệ</rt></ruby>
+        <ruby>份<rt>phần</rt></ruby><ruby>百<rt>trăm</rt></ruby><ruby>数<rt>số</rt></ruby>
+        <ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>中<rt>trong</rt></ruby> 6 <ruby>期<rt>kỳ</rt></ruby><ruby>試<rt>thi</rt></ruby>
+        <ruby>近<rt>gần</rt></ruby><ruby>弌<rt>nhất</rt></ruby>
+        <ruby>固<rt>có</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>𥰊<rt>thấp</rt></ruby><ruby>欣<rt>hơn</rt></ruby>
+        <ruby>点<rt>điểm</rt></ruby><ruby>𧵑<rt>của</rt></ruby><ruby>伴<rt>bạn</rt></ruby>。
+        <br>※ <ruby>空<rt>Không</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>
+        <ruby>対<rt>đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>空<rt>không</rt></ruby><ruby>達<rt>đạt</rt></ruby>(<ruby>得<rt>được</rt></ruby><ruby>表示<rt>biểu thị</rt></ruby>
+        <ruby>憑<rt>bằng</rt></ruby><ruby>酉<rt>dấu</rt></ruby> × )。
+    </div>
+  </div>
+
+
+  <!-- CEFR -->
+  <div style="border:1px solid #ccc; padding:15px; width:260px; background: #fff;">
+    <div style="font-size: 0.7rem;color: #002403;">
+    <ruby>級<rt>Cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR<br>(<ruby>能力<rt>Năng lực</rt></ruby><ruby>言語<rt>ngôn ngữ</rt></ruby> – 
+        <ruby>技能<rt>kỹ năng</rt></ruby><ruby>接<rt>tiếp</rt></ruby><ruby>認<rt>nhận</rt></ruby>)
+    </div>
+
+
+    <div style="font-size: 0.7rem; line-height:1.6;">
+        <ruby>顕<rt>Hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>
+        <ruby>級<rt>cấp</rt></ruby><ruby>度<rt>độ</rt></ruby> CEFR 
+        <ruby>相<rt>tương</rt></ruby><ruby>応<rt>ứng</rt></ruby>
+        <ruby>𠇍<rt>với</rt></ruby>
+        <ruby>総<rt>tổng</rt></ruby><ruby>点<rt>điểm</rt></ruby>
+        <ruby>達<rt>đạt</rt></ruby><ruby>得<rt>được</rt></ruby>。<br>
+        ※ <ruby>空<rt>Không</rt></ruby><ruby>顕<rt>hiển</rt></ruby><ruby>示<rt>thị</rt></ruby>
+        <ruby>対<rt>đối</rt></ruby><ruby>𠇍<rt>với</rt></ruby><ruby>試<rt>thí</rt></ruby><ruby>生<rt>sinh</rt></ruby>
+        <ruby>空<rt>không</rt></ruby><ruby>達<rt>đạt</rt></ruby>
+        (<ruby>得<rt>được</rt></ruby><ruby>表示<rt>biểu thị</rt></ruby>
+        <ruby>憑<rt>bằng</rt></ruby><ruby>酉<rt>dấu</rt></ruby> × )。
+     
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer class="jlpt-footer">
+    <div class="footer-links">
+      |   <a href="#">政策張WEB</a> | 
+        <a href="#">政策保密</a> | 
+        <a href="#">初図張WEB</a> | 
+        <a href="#">名目連結</a>| 
+    </div>
+
+    <div class="footer-desc">
+       <ruby> 張㖠𪜀張正式𧵑期試打價能力㗂越, 得財助𤳄院翰林院科学社会越南和協会発展邦交越南。<rt>Trang này là trang chính thức của kỳ thi đánh giá năng lực tiếng việt được tài trợ bởi hàn lâm viện khoa học xã hội và hiệp hội phát triển bang giao việt nam</rt></ruby>
+    </div>
+
+    <div class="footer-logos">
+        <div class="org">
+            <img src="../pik/logo2.png" alt="Japan Foundation">
+        </div>
+        <div class="org">
+            <img src="../pik/logo4.png" alt="JEES">
+        </div>
+    </div>
+
+    <div class="copyright">
+        Copyright © 2012 Vietnam Association for Foreign Affairs Development / Vietnam Academy of Social Sciences
+    </div>
+</footer>
+
+</body>
+</html>
